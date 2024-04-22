@@ -13,6 +13,7 @@ public class TextGeneratorTests
 {
     public static IEnumerable<object[]> CreateNumber_DataSource() {
         yield return new object[] { 1, "   " + Environment.NewLine + "  |" + Environment.NewLine + "  |" };
+        yield return new object[] { 2, " _ " + Environment.NewLine + " _|" + Environment.NewLine + "|_ " };
     }
 
     [Theory]
