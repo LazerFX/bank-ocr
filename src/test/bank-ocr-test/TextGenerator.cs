@@ -22,4 +22,9 @@ public class TextGenerator
         }
         return "";
     }
+
+    internal static object GetNumberString(int input)
+    {
+        throw new NotImplementedException();
+    }
 }
