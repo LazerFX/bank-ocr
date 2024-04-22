@@ -60,13 +60,13 @@ public class TextGeneratorTests
     {
         yield return new object[] { 123456789,  "    _  _     _  _  _  _  _ " + Environment.NewLine +
                                                 "  | _| _||_||_ |_   ||_||_|" + Environment.NewLine +
-                                                "  ||_  _|  | _||_|  ||_| _|"};
+                                                "  ||_  _|  | _||_|  ||_| _|" + Environment.NewLine };
         yield return new object[] { 113355000,  "       _  _  _  _  _  _  _ " + Environment.NewLine +
                                                 "  |  | _| _||_ |_ | || || |" + Environment.NewLine +
-                                                "  |  | _| _| _| _||_||_||_|"};
+                                                "  |  | _| _| _| _||_||_||_|" + Environment.NewLine };
         yield return new object[] { 9125329,    " _  _  _     _  _  _  _  _ " + Environment.NewLine +
                                                 "| || ||_|  | _||_  _| _||_|" + Environment.NewLine +
-                                                "|_||_| _|  ||_  _| _||_  _|"};
+                                                "|_||_| _|  ||_  _| _||_  _|" + Environment.NewLine };
     }
 
     [Theory]

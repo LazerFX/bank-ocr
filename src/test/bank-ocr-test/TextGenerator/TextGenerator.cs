@@ -33,12 +33,8 @@ public static class TextGenerator
         var line1 = new StringBuilder();
         var line2 = new StringBuilder();
         var line3 = new StringBuilder();
-
-        var numberArray = input.GetDigits();
-
-        while (numberArray.Count() < 9) {
-            numberArray = numberArray.Prepend(0);
-        }
+        
+        var numberArray = GetPaddedNumberArray(input);
 
         foreach (var digit in numberArray)
         {
@@ -52,9 +48,27 @@ public static class TextGenerator
             line3.Append(splitLines[2]);
         }
 
-        var retVal = new StringBuilder();
-        retVal.AppendJoin(Environment.NewLine, [line1.ToString(), line2.ToString(), line3.ToString()]);
-        return retVal.ToString();
+        return CreateMultiLine(line1, line2, line3);
+    }
+
+    private static string CreateMultiLine(params StringBuilder[] lines) {
+        var returnValue = new StringBuilder();
+        foreach (var line in lines) {
+            returnValue.Append(line).AppendLine();
+        }
+        return returnValue.ToString();
+    }
+
+    private static IEnumerable<int> GetPaddedNumberArray(int input)
+    {
+        var numberArray = input.GetDigits();
+
+        while (numberArray.Count() < 9)
+        {
+            numberArray = numberArray.Prepend(0);
+        }
+
+        return numberArray;
     }
 
     private static IEnumerable<int> GetDigits(this int value) =>
