@@ -34,13 +34,16 @@ public static class TextGenerator
         var line2 = new StringBuilder();
         var line3 = new StringBuilder();
 
-        foreach (var digit in input.GetDigits())
+        var numberArray = input.GetDigits();
+
+        while (numberArray.Count() < 9) {
+            numberArray = numberArray.Prepend(0);
+        }
+
+        foreach (var digit in numberArray)
         {
             NumberData.TryGetValue(digit, out var raw);
-            if (raw == null)
-            {
-                throw new ArgumentException("Expected a valid digit value", nameof(input));
-            }
+            if (raw == null) { return ""; }
 
             var splitLines = raw.Split(Environment.NewLine);
 
