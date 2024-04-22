@@ -16,6 +16,9 @@ public class TextGeneratorTests
 {
     // TODO: Add Zero
     public static IEnumerable<object[]> CreateNumber_DataSource() {
+        yield return new object[] { 0,  " _ " + Environment.NewLine + 
+                                        "| |" + Environment.NewLine + 
+                                        "|_|" };
         yield return new object[] { 1,  "   " + Environment.NewLine + 
                                         "  |" + Environment.NewLine + 
                                         "  |" };
