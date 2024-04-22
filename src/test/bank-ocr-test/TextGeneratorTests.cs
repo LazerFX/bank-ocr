@@ -14,6 +14,13 @@ public class TextGeneratorTests
     public static IEnumerable<object[]> CreateNumber_DataSource() {
         yield return new object[] { 1, "   " + Environment.NewLine + "  |" + Environment.NewLine + "  |" };
         yield return new object[] { 2, " _ " + Environment.NewLine + " _|" + Environment.NewLine + "|_ " };
+        yield return new object[] { 3, " _ " + Environment.NewLine + " _|" + Environment.NewLine + " _|" };
+        yield return new object[] { 4, "   " + Environment.NewLine + "|_|" + Environment.NewLine + "  |" };
+        yield return new object[] { 5, " _ " + Environment.NewLine + "|_ " + Environment.NewLine + " _|" };
+        yield return new object[] { 6, " _ " + Environment.NewLine + "|_ " + Environment.NewLine + "|_|" };
+        yield return new object[] { 7, " _ " + Environment.NewLine + "  |" + Environment.NewLine + "  |" };
+        yield return new object[] { 8, " _ " + Environment.NewLine + "|_|" + Environment.NewLine + "|_|" };
+        yield return new object[] { 9, " _ " + Environment.NewLine + "|_|" + Environment.NewLine + " _|" };
     }
 
     [Theory]
