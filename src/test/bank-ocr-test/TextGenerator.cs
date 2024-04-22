@@ -1,7 +1,9 @@
 ﻿
 namespace bank_ocr_test;
 
-public class TextGenerator
+using System.Linq;
+
+public static class TextGenerator
 {
     private static Dictionary<int, string> NumberData = new() {
         { 1, "   " + Environment.NewLine + "  |" + Environment.NewLine + "  |" },
@@ -23,8 +25,9 @@ public class TextGenerator
         return "";
     }
 
-    internal static object GetNumberString(int input)
-    {
-        throw new NotImplementedException();
-    }
+    internal static object GetNumberString(int input) =>
+        input.GetDigits().Select(x => NumberData[x]);
+
+    private static IEnumerable<int> GetDigits(this int value) =>
+        value == 0 ? [] : GetDigits(value /  10).Append(value % 10);
 }
