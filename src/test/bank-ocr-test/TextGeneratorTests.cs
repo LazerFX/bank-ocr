@@ -14,7 +14,6 @@ namespace bank_ocr_test;
 
 public class TextGeneratorTests
 {
-    // TODO: Add Zero
     public static IEnumerable<object[]> CreateNumber_DataSource() {
         yield return new object[] { 0,  " _ " + Environment.NewLine + 
                                         "| |" + Environment.NewLine + 
