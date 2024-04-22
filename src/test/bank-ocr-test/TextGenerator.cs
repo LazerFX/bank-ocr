@@ -7,6 +7,7 @@ using System.Text;
 public static class TextGenerator
 {
     private static Dictionary<int, string> NumberData = new() {
+        { 0, " _ " + Environment.NewLine + "| |" + Environment.NewLine + "|_|" },
         { 1, "   " + Environment.NewLine + "  |" + Environment.NewLine + "  |" },
         { 2, " _ " + Environment.NewLine + " _|" + Environment.NewLine + "|_ " },
         { 3, " _ " + Environment.NewLine + " _|" + Environment.NewLine + " _|" },
