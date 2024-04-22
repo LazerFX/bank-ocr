@@ -1,5 +1,5 @@
 ﻿
-namespace bank_ocr_test;
+namespace bank_ocr_test.TextGenerator;
 
 using System.Linq;
 using System.Text;
@@ -21,20 +21,24 @@ public static class TextGenerator
 
     internal static string CreateNumber(int input)
     {
-        if (NumberData.TryGetValue(input, out var retval)) {
+        if (NumberData.TryGetValue(input, out var retval))
+        {
             return retval;
         }
         return "";
     }
 
-    internal static string GetNumberString(int input) {
+    internal static string GetNumberString(int input)
+    {
         var line1 = new StringBuilder();
         var line2 = new StringBuilder();
         var line3 = new StringBuilder();
 
-        foreach (var digit in input.GetDigits()) {
+        foreach (var digit in input.GetDigits())
+        {
             NumberData.TryGetValue(digit, out var raw);
-            if (raw == null) {
+            if (raw == null)
+            {
                 throw new ArgumentException("Expected a valid digit value", nameof(input));
             }
 
@@ -51,5 +55,5 @@ public static class TextGenerator
     }
 
     private static IEnumerable<int> GetDigits(this int value) =>
-        value == 0 ? [] : GetDigits(value /  10).Append(value % 10);
+        value == 0 ? [] : (value / 10).GetDigits().Append(value % 10);
 }

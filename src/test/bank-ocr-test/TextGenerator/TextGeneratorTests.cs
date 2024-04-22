@@ -10,40 +10,41 @@
         glyph.
 */
 
-namespace bank_ocr_test;
+namespace bank_ocr_test.TextGenerator;
 
 public class TextGeneratorTests
 {
-    public static IEnumerable<object[]> CreateNumber_DataSource() {
-        yield return new object[] { 0,  " _ " + Environment.NewLine + 
-                                        "| |" + Environment.NewLine + 
+    public static IEnumerable<object[]> CreateNumber_DataSource()
+    {
+        yield return new object[] { 0,  " _ " + Environment.NewLine +
+                                        "| |" + Environment.NewLine +
                                         "|_|" };
-        yield return new object[] { 1,  "   " + Environment.NewLine + 
-                                        "  |" + Environment.NewLine + 
+        yield return new object[] { 1,  "   " + Environment.NewLine +
+                                        "  |" + Environment.NewLine +
                                         "  |" };
-        yield return new object[] { 2,  " _ " + Environment.NewLine + 
-                                        " _|" + Environment.NewLine + 
+        yield return new object[] { 2,  " _ " + Environment.NewLine +
+                                        " _|" + Environment.NewLine +
                                         "|_ " };
-        yield return new object[] { 3,  " _ " + Environment.NewLine + 
-                                        " _|" + Environment.NewLine + 
+        yield return new object[] { 3,  " _ " + Environment.NewLine +
+                                        " _|" + Environment.NewLine +
                                         " _|" };
-        yield return new object[] { 4,  "   " + Environment.NewLine + 
-                                        "|_|" + Environment.NewLine + 
+        yield return new object[] { 4,  "   " + Environment.NewLine +
+                                        "|_|" + Environment.NewLine +
                                         "  |" };
-        yield return new object[] { 5,  " _ " + Environment.NewLine + 
-                                        "|_ " + Environment.NewLine + 
+        yield return new object[] { 5,  " _ " + Environment.NewLine +
+                                        "|_ " + Environment.NewLine +
                                         " _|" };
-        yield return new object[] { 6,  " _ " + Environment.NewLine + 
-                                        "|_ " + Environment.NewLine + 
+        yield return new object[] { 6,  " _ " + Environment.NewLine +
+                                        "|_ " + Environment.NewLine +
                                         "|_|" };
-        yield return new object[] { 7,  " _ " + Environment.NewLine + 
-                                        "  |" + Environment.NewLine + 
+        yield return new object[] { 7,  " _ " + Environment.NewLine +
+                                        "  |" + Environment.NewLine +
                                         "  |" };
-        yield return new object[] { 8,  " _ " + Environment.NewLine + 
-                                        "|_|" + Environment.NewLine + 
+        yield return new object[] { 8,  " _ " + Environment.NewLine +
+                                        "|_|" + Environment.NewLine +
                                         "|_|" };
-        yield return new object[] { 9,  " _ " + Environment.NewLine + 
-                                        "|_|" + Environment.NewLine + 
+        yield return new object[] { 9,  " _ " + Environment.NewLine +
+                                        "|_|" + Environment.NewLine +
                                         " _|" };
     }
 
@@ -55,7 +56,8 @@ public class TextGeneratorTests
         output.Should().Be(expectedOutput);
     }
 
-    public static IEnumerable<object[]> GetNumberString_DataSource() {
+    public static IEnumerable<object[]> GetNumberString_DataSource()
+    {
         yield return new object[] { 123456789,  "    _  _     _  _  _  _  _ " + Environment.NewLine +
                                                 "  | _| _||_||_ |_   ||_||_|" + Environment.NewLine +
                                                 "  ||_  _|  | _||_|  ||_| _|"};
@@ -63,7 +65,8 @@ public class TextGeneratorTests
 
     [Theory]
     [MemberData(nameof(GetNumberString_DataSource))]
-    public void GetNumberString_WillOutput_TheRightValue(int input, string expectedOutput) {
+    public void GetNumberString_WillOutput_TheRightValue(int input, string expectedOutput)
+    {
         var output = TextGenerator.GetNumberString(input);
         output.Should().Be(expectedOutput);
     }
