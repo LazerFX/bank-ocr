@@ -27,7 +27,7 @@ public class TextGeneratorTests
     [MemberData(nameof(CreateNumber_DataSource))]
     public void CreateNumber_WillOutput_TheRightValue(int input, string expectedOutput)
     {
-        var output = TextGenerator.CreateNumber(input, expectedOutput);
+        var output = TextGenerator.CreateNumber(input);
         output.Should().Be(expectedOutput);
     }
 }
