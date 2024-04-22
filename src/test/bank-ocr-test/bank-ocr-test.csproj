@@ -28,4 +28,8 @@
     <Folder Include="TextGenerator\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\bank-ocr\bank-ocr.csproj" />
+  </ItemGroup>
+
 </Project>
