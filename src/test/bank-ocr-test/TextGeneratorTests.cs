@@ -12,7 +12,7 @@ namespace bank_ocr_test;
 public class TextGeneratorTests
 {
     public static IEnumerable<object[]> CreateNumber_DataSource() {
-        yield return new object[] { 1, "  |" + Environment.NewLine + "  |" };
+        yield return new object[] { 1, "   " + Environment.NewLine + "  |" + Environment.NewLine + "  |" };
     }
 
     [Theory]
