@@ -5,6 +5,6 @@ public class CharacterRecogniser
 {
     public static IEnumerable<int> GetCharacters(string digits)
     {
-        return 0;
+        return [0];
     }
 }
