@@ -21,6 +21,10 @@ public class CharacterRecogniserTest
         Assert.Equal(expectedOutput, actualOutput);
     }
 
+    public static IEnumerable<object[]> SplitInto3s_Will_SplitStringIntoArrayOf3CharLongValues_Data() {
+        yield return new object[] { "111222333", new string[] { "111", "222", "333" }};
+    }
+
     [Fact]
     public void SplitInto3s_Will_SplitStringIntoArrayOf3CharLongValues() {
         var input = "111222333";
