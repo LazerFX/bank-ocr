@@ -8,8 +8,14 @@ public static class CharacterRecogniser
         var inputLines = digits.Split(Environment.NewLine);
         var output = new List<string>();
         var splitLine1 = inputLines[0].SplitInto3s();
+        var splitLine2 = inputLines[1].SplitInto3s();
+        var splitline3 = inputLines[2].SplitInto3s();
 
-        return [];
+        foreach ((string line1, string line2, string line3) in splitLine1.Zip(splitLine2, splitline3)) {
+            yield return    line1 + Environment.NewLine +
+                            line2 + Environment.NewLine +
+                            line3 + Environment.NewLine;
+        }
     }
 
     public static IEnumerable<string> SplitInto3s(this string input) =>
