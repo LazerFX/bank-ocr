@@ -12,7 +12,7 @@ public static class CharacterRecogniser
         return [];
     }
 
-    public static IEnumerable<string> SplitInto3s(this string input) {
-        throw new NotImplementedException();
-    }
+    public static IEnumerable<string> SplitInto3s(this string input) =>
+        Enumerable.Range(0, input.Length / 3)
+            .Select(i => input.Substring(i * 3, 3));
 }
