@@ -5,9 +5,10 @@ namespace bank_ocr_test;
 
 public class CharacterRecogniserTest
 {
-    public static string individiualZero =  " _ " + Environment.NewLine +
-                                            "| |" + Environment.NewLine +
-                                            "|_|" + Environment.NewLine;
+    public static Dictionary<int, string> digitIntMapping = new() {
+        {   0,  " _ " + Environment.NewLine +
+                "| |" + Environment.NewLine +
+                "|_|" + Environment.NewLine } };
 
     [Fact]
     public void GetCharacters_WillReturn_IndividualDigit() {
@@ -15,7 +16,9 @@ public class CharacterRecogniserTest
                     "| || |" + Environment.NewLine +
                     "|_||_|" + Environment.NewLine;
         
-        var expectedOutput = new[] { individiualZero, individiualZero };
+        var zero = digitIntMapping[0];
+
+        var expectedOutput = new[] { zero, zero };
 
         var actualOutput = CharacterRecogniser.GetCharacters(input);
 
@@ -37,9 +40,14 @@ public class CharacterRecogniserTest
         Assert.Equal(expectedOutput, actualOutput);
     }
 
-    [Fact]
-    public void GetDigit_Returns_ANumberForTheDigit() {
-        var output = CharacterRecogniser.GetDigit(individiualZero);
-        Assert.Equal(0, output);
+    public static IEnumerable<object[]> GetDigit_Returns_ANumberForTheDigit_Data() {
+        yield return new object[] { digitIntMapping[0], 0 };
+    }
+
+    [Theory]
+    [MemberData(nameof(GetDigit_Returns_ANumberForTheDigit_Data))]
+    public void GetDigit_Returns_ANumberForTheDigit(string input, int expectedOutput) {
+        var output = CharacterRecogniser.GetDigit(input);
+        Assert.Equal(expectedOutput, output);
     }
 }
