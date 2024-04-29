@@ -6,7 +6,6 @@ public static class CharacterRecogniser
     public static IEnumerable<string> GetCharacters(string digits)
     {
         var inputLines = digits.Split(Environment.NewLine);
-        var output = new List<string>();
         var splitLine1 = inputLines[0].SplitInto3s();
         var splitLine2 = inputLines[1].SplitInto3s();
         var splitline3 = inputLines[2].SplitInto3s();
@@ -21,4 +20,9 @@ public static class CharacterRecogniser
     public static IEnumerable<string> SplitInto3s(this string input) =>
         Enumerable.Range(0, input.Length / 3)
             .Select(i => input.Substring(i * 3, 3));
+
+    public static int GetDigit(string character)
+    {
+        throw new NotImplementedException();
+    }
 }

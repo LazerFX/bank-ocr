@@ -1,18 +1,19 @@
-﻿using bank_ocr;
+﻿using System.Reflection.Metadata;
+using bank_ocr;
 
 namespace bank_ocr_test;
 
 public class CharacterRecogniserTest
 {
+    public static string individiualZero =  " _ " + Environment.NewLine +
+                                            "| |" + Environment.NewLine +
+                                            "|_|" + Environment.NewLine;
+
     [Fact]
     public void GetCharacters_WillReturn_IndividualDigit() {
         var input = " _  _ " + Environment.NewLine +
                     "| || |" + Environment.NewLine +
                     "|_||_|" + Environment.NewLine;
-        
-        var individiualZero =   " _ " + Environment.NewLine +
-                                "| |" + Environment.NewLine +
-                                "|_|" + Environment.NewLine;
         
         var expectedOutput = new[] { individiualZero, individiualZero };
 
@@ -34,5 +35,11 @@ public class CharacterRecogniserTest
         var actualOutput = CharacterRecogniser.SplitInto3s(input);
 
         Assert.Equal(expectedOutput, actualOutput);
+    }
+
+    [Fact]
+    public void GetDigit_Returns_ANumberForTheDigit() {
+        var output = CharacterRecogniser.GetDigit(individiualZero);
+        Assert.Equal(0, output);
     }
 }
