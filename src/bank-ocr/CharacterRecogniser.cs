@@ -23,6 +23,6 @@ public static class CharacterRecogniser
 
     public static int GetDigit(string character)
     {
-        throw new NotImplementedException();
+        return 0;
     }
 }
